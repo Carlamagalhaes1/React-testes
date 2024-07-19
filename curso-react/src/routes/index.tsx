@@ -1,10 +1,12 @@
-import { BrowserRouter , Routes, Route } from 'react-router-dom'
+import { BrowserRouter , Routes, Route, Navigate } from 'react-router-dom'
+import { Dashboard } from '../pages'
 
 export const Rotas = () => {
     return (
         <BrowserRouter>
          <Routes>
-            <Route path='/' element={<h1>Olá</h1>}/>
+            <Route path='/pagina-inicial'  element={<Dashboard/>}/>
+            <Route path='*' element={<Navigate/>}/>
          </Routes>
 
         </BrowserRouter>

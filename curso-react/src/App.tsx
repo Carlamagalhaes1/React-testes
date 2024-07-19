@@ -1,4 +1,4 @@
-
+import { Rotas } from './routes'
 
 
 
@@ -9,7 +9,7 @@ export const  App = () =>  {
     
     <>
     <div>
-      Olá
+      <Rotas/>
 
     </div>
      

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom'
 export const Dashboard = () => {
 
     const nave = useNavigate();
+
+    const inputPassawordRef = useRef<HTMLInputElement>(null);
+
     const [ email, setEmail] = useState('');
     const [ nome, setNome] = useState('');
     const [ senha, setSenha ] = useState('');
@@ -63,7 +66,7 @@ export const Dashboard = () => {
                     </label>
                     <label>
                         <span>Senha: </span>
-                        <input type='password' value={senha} onChange={ e => setSenha(e.target.value)} />
+                        <input type='password' value={senha} ref={inputPassawordRef} onChange={ e => setSenha(e.target.value)} />
                     </label>
                     <button type='button' onClick={handleEntrar}>Entrar</button>
                 </form>

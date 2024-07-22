@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,14 +10,14 @@ export const Dashboard = () => {
     const [ nome, setNome] = useState('');
     const [ senha, setSenha ] = useState('');
 
-    useEffect( () => {
+    /*useEffect( () => {
         if ( window.confirm('Você é Homem?')){
             console.log('Homem')
         } else {
             console.log('Mulher')
         }
     
-    }, []);
+    }, []);*/
 
     useEffect( () => {
         console.log(nome)
@@ -30,6 +30,11 @@ export const Dashboard = () => {
         nave('/login')
 
     }
+
+    const emailLength = useMemo(() => {
+        return email.length * 10
+
+    }, [email.length]);
 
     const handleEntrar = () =>{
         console.log(nome)
@@ -46,6 +51,7 @@ export const Dashboard = () => {
             </div>
             <div>
                 <form>
+                    <p>Quantidade de caracteres no Email:{emailLength} </p>
                     <label>
                         <span>Nome: </span>
                         <input value={nome} onChange={e => setNome(e.target.value) } />

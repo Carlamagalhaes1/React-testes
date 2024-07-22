@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,6 +9,22 @@ export const Dashboard = () => {
     const [ email, setEmail] = useState('');
     const [ nome, setNome] = useState('');
     const [ senha, setSenha ] = useState('');
+
+    useEffect( () => {
+        if ( window.confirm('Você é Homem?')){
+            console.log('Homem')
+        } else {
+            console.log('Mulher')
+        }
+    
+    }, []);
+
+    useEffect( () => {
+        console.log(nome)
+        console.log(email)
+        console.log(senha)
+       
+    }, [email, senha, nome]);
 
     const handleClick = () => {
         nave('/login')

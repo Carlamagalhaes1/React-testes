@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -36,12 +36,13 @@ export const Dashboard = () => {
 
     }, [email.length]);
 
-    const handleEntrar = () =>{
-        console.log(nome)
-        console.log(email)
-        console.log(senha)
+    const handleEntrar = useCallback(() =>{
+            console.log(nome)
+            console.log(email)
+            console.log(senha)
+    
+        }, [email, senha, nome] );
 
-    }
     return (
         <div>
             <p>Dash</p>
